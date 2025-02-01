@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -12,10 +12,183 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+} */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-inter), sans-serif;
+}
+.font-Montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+}
+.text-blue-text {
+  --tw-text-opacity: 1;
+  color: rgb(11 48 91 / var(--tw-text-opacity));
+}
+@media (min-width: 1024px) {
+  .lg\:text-blue-text {
+    --tw-text-opacity: 1;
+    color: rgb(11 48 91 / var(--tw-text-opacity));
+  }
+}
+.text-blue-main {
+  --tw-text-opacity: 1;
+  color: rgb(31 128 240 / var(--tw-text-opacity));
+}
+.hover\:text-blue-main:hover {
+  --tw-text-opacity: 1;
+  color: #1f80f0;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.text-res-link {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.text-link {
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 600;
+}
+@media (min-width: 1024px) {
+  .lg\:text-link {
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: 600;
+  }
+}
+
+.text-res-body-p1 {
+  font-size: 14px;
+  line-height: 160%;
+  font-weight: 400;
+}
+@media (min-width: 1024px) {
+  .lg\:text-body-p1 {
+    font-size: 16px;
+    line-height: 160%;
+    font-weight: 400;
+  }
+}
+
+.rounded-xs {
+  border-radius: 0.1875rem;
+}
+.text-res-body-p0 {
+  font-size: 16px;
+  line-height: 180%;
+  font-weight: 600;
+}
+
+.text-body-p1 {
+  font-size: 16px;
+  line-height: 160%;
+  font-weight: 400;
+}
+
+.bg-blue-main {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 128 240 / var(--tw-bg-opacity));
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1.938rem;
+  padding-left: 1.938rem;
+}
+
+/* Additional ???????? */
+
+.gradient-overlay.svelte-1lc7tvy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(190deg, #1f80f0 15.05%, rgba(31, 128, 240, 0) 30.39%);
+}
+
+#home-hero__content__container.svelte-n9olsd {
+  background: radial-gradient(59.82% 121.73% at -9.66% 130.31%, #00e9ea 0%, #1f80f0 52.08%, #005bc4 100%);
+}
+
+@media only screen and (max-width: 1024px) {
+  #home-hero__content__container.svelte-n9olsd {
+    background: radial-gradient(134.02% 81.35% at -9.66% 129.92%, #00e9ea 0%, #1f80f0 52.08%, #005bc4 100%);
+  }
+}
+
+#common-cta_container.svelte-vr11vg {
+  background: radial-gradient(24.45% 88.58% at 23.57% 2%, #00e9ea 0%, #1f80f0 52.08%, #005bc4 100%);
+}
+
+@media only screen and (max-width: 1024px) {
+  #common-cta_container.svelte-vr11vg {
+    background: radial-gradient(62.05% 69.64% at 33.72% -3.27%, #00e9ea 0%, #1f80f0 52.08%, #005bc4 100%);
+  }
+}
+
+/* For Hero Area */
+.text-res-head-1 {
+  font-size: 56px;
+  line-height: 115%;
+  letter-spacing: -1.12px;
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  .lg\:text-head-1 {
+    font-size: 80px;
+    line-height: 115%;
+    letter-spacing: -1.6px;
+    font-weight: 600;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:whitespace-pre-line {
+    white-space: pre-line;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:text-head-5 {
+    font-size: 16px;
+    line-height: 160%;
+    font-weight: 600;
+  }
+}
+
+.space-y-\[16px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(16px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(16px * var(--tw-space-y-reverse));
+}
+
+@media (min-width: 1024px) {
+  .lg\:space-y-sm > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(24px * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(24px * var(--tw-space-y-reverse));
+  }
+}
+
+.space-y-\[16px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(16px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(16px * var(--tw-space-y-reverse));
+}
+
+@media (min-width: 1024px) {
+  .lg\:space-y-sm > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(24px * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(24px * var(--tw-space-y-reverse));
+  }
+}
+
+.bg-orange-main {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 139 83 / var(--tw-bg-opacity));
 }
