@@ -1,12 +1,14 @@
+"use client";
 import React from "react";
 import Image from "next/image";
-import WaveLinesDesktop1 from "../../public/Assets/backgrounds/WaveLinesDesktop1.svg";
-import WaveLinesDesktop2 from "../../public/Assets/backgrounds/WaveLinesDesktop2.svg";
-import WaveLinesDesktop3 from "../../public/Assets/backgrounds/WaveLinesDesktop3.svg";
-import WaveLinesDesktop4 from "../../public/Assets/backgrounds/WaveLinesDesktop4.svg";
-import WaveLinesMobile1 from "../../public/Assets/backgrounds/WaveLinesMobile1.svg";
-import WaveLinesMobile2 from "../../public/Assets/backgrounds/WaveLinesMobile2.svg";
-import herobgsingle from "../../public/Assets/backgrounds/hero-bg-single.svg";
+import { motion } from "framer-motion";
+// import WaveLinesDesktop1 from "../../public/Assets/backgrounds/WaveLinesDesktop1.svg";
+// import WaveLinesDesktop2 from "../../public/Assets/backgrounds/WaveLinesDesktop2.svg";
+// import WaveLinesDesktop3 from "../../public/Assets/backgrounds/WaveLinesDesktop3.svg";
+// import WaveLinesDesktop4 from "../../public/Assets/backgrounds/WaveLinesDesktop4.svg";
+// import WaveLinesMobile1 from "../../public/Assets/backgrounds/WaveLinesMobile1.svg";
+// import WaveLinesMobile2 from "../../public/Assets/backgrounds/WaveLinesMobile2.svg";
+// import herobgsingle from "../../public/Assets/backgrounds/hero-bg-single.svg";
 import HeroBgDesk from "./BGs/heroBgDesk";
 import HeroBgMobile from "./BGs/heroBgMobile";
 
@@ -50,9 +52,27 @@ function Hero() {
         </div> */}
 
         <div className="hidden lg:block absolute z-0 top-0 xl:left-[35%] xl:w-[65%] left-1/2 lg:w-[56%] h-full bg-clip-hero-image pointer-events-none svelte-1lc7tvy">
-          <figure className="h-[115%] w-[115%] object-cover hero-figure  ">
+          {/* <figure className="h-[115%] w-[115%] object-cover hero-figure  "> */}
+          <motion.figure
+            initial={{
+              transform: "translate3d(12%, 0.002%, 0px)",
+            }} // Start position off-screen right
+            animate={{
+              transform: "translate3d(0%, 0.002%, 0px)",
+            }} // End position on-screen
+            transition={{
+              duration: 0.5, // Duration of the transition
+              ease: [0.25, 0.46, 0.45, 0.94], // cubic-bezier timing function
+              delay: 0.5, // Add delay
+            }}
+            style={{
+              transform: "translate3d(12%, 0.002%, 0px)", // initial position
+            }}
+            className="h-[115%] w-[115%] object-cover"
+          >
             <Image src={heroGirl} width={7952} height={5304} className="h-full w-full object-cover  " sizes="55vw" alt="background image" />
-          </figure>
+            {/* </figure> */}
+          </motion.figure>
           <div className="gradient-overlay hero-bg" />
         </div>
 

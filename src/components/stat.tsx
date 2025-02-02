@@ -3,19 +3,26 @@ import React from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import CountUp from "react-countup";
 // import Swiper styles
 import "swiper/css";
 const statNums = [
   {
-    num: ">20",
+    numStart: ">",
+    num: 20,
+    numEnd: "",
     text: "Years of Experience",
   },
   {
-    num: "40+",
+    numStart: "",
+    num: 40,
+    numEnd: "+",
     text: "Financial Institutions",
   },
   {
-    num: ">200m",
+    numStart: ">",
+    num: 200,
+    numEnd: "m",
     text: "Customers Each",
   },
 ];
@@ -46,7 +53,12 @@ function Stats() {
         <div className="items-center justify-between max-lg:space-y-6 lg:flex xl:mx-28">
           {statNums.map((stat, index) => (
             <div key={index} className="flex items-center border-dashed max-lg:justify-between lg:flex-col max-lg:border-b border-blue-highlight max-lg:pb-xs">
-              <h2 className="max-[280px]:text-[40px] text-[64px] lg:text-[96px] font-Montserrat tracking-[-0.02em] font-semibold leading-none bg-gradient-to-b from-[#1f80f0] to-[#0057BB] text-transparent bg-clip-text">{stat.num}</h2>
+              <h2 className="max-[280px]:text-[40px] text-[64px] lg:text-[96px] font-Montserrat tracking-[-0.02em] font-semibold leading-none bg-gradient-to-b from-[#1f80f0] to-[#0057BB] text-transparent bg-clip-text">
+                {stat.numStart}
+
+                <CountUp end={stat.num} />
+                {stat.numEnd}
+              </h2>
               <p className="text-right text-[#151D2F] lg:text-center max-lg:text-res-link lg:text-lg lg:mt-[19px]">{stat.text}</p>
             </div>
           ))}

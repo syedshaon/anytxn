@@ -1,64 +1,101 @@
+"use client";
 import React from "react";
-
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { MouseParallaxChild, MouseParallaxContainer } from "react-parallax-mouse";
 function HeroBgDesk() {
+  const [offsetX, setOffsetX] = useState(0);
+
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      const { clientX } = event;
+      const windowWidth = window.innerWidth;
+
+      // Normalize movement range (-20px to 20px)
+      const moveAmount = (clientX / windowWidth - 0.5) * 100;
+      setOffsetX(moveAmount);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <svg className="hidden lg:block absolute h-full w-full object-cover inset-0" width="1920" height="929" viewBox="0 0 1920 929" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="hero-background-desktop">
-        <g id="background" className="backgroungAnim1">
-          <g id="Vector" style={{ mixBlendMode: "multiply" }}>
-            <path d="M668 23.4954V-382L-643 929H-237.504L668 23.4954Z" fill="url(#paint0_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_2" style={{ mixBlendMode: "multiply" }}>
-            <path d="M1195 -226.405V-592L13 590H378.596L1195 -226.405Z" fill="url(#paint1_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_3" style={{ mixBlendMode: "multiply" }}>
-            <path d="M1011 -629.405V-995L-171 187H194.596L1011 -629.405Z" fill="url(#paint2_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_4" style={{ mixBlendMode: "multiply" }}>
-            <path d="M313 -161.212V-357L-320 276H-124.211L313 -161.212Z" fill="url(#paint3_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_5">
-            <path d="M396.6 -357L-76 115.6H-42.2001L396.6 -323.2V-357Z" fill="url(#paint4_linear_132_3263)"></path>
-            <path d="M396.6 -357L-76 115.6H-42.2001L396.6 -323.2V-357Z" fill="url(#paint5_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_6" filter="url(#filter0_f_132_3263)">
-            <path d="M52 428.656V347L-212 611H-130.344L52 428.656Z" fill="url(#paint6_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_7" filter="url(#filter1_f_132_3263)">
-            <path d="M146 50L-189 385H-165.061L146 73.9394V50Z" fill="url(#paint7_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_8" filter="url(#filter2_f_132_3263)">
-            <path d="M345.1 -154L124 67.1H139.8L345.1 -138.2V-154Z" fill="url(#paint8_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_9" filter="url(#filter3_f_132_3263)">
-            <path d="M140 131H313L140 304V131Z" fill="url(#paint9_linear_132_3263)"></path>
-            <path d="M140 131H313L140 304V131Z" fill="url(#paint10_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_10" style={{ mixBlendMode: "multiply" }}>
-            <path d="M1315 316.788V121L682 754H877.789L1315 316.788Z" fill="url(#paint11_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_11" style={{ mixBlendMode: "multiply" }}>
-            <path d="M1220 -28.2093V-121L920 179H1012.79L1220 -28.2093Z" fill="url(#paint12_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_12" style={{ mixBlendMode: "multiply" }}>
-            <path d="M1968 388.791V296L1668 596H1760.79L1968 388.791Z" fill="url(#paint13_linear_132_3263)"></path>
-          </g>
+        <g
+          style={{
+            transform: `translateX(${offsetX}px)`,
+            transition: "transform 0.1s linear", // Smooth movement
+          }}
+          className="absolute top-0 left-0 w-full h-full"
+        >
+          <motion.g id="background" initial={{ y: -150 }} animate={{ y: 0 }} transition={{ duration: 1, ease: "linear" }}>
+            {/* <g id="background" className="backgroungAnim1"> */}
+            <g id="Vector" style={{ mixBlendMode: "multiply" }}>
+              <path d="M668 23.4954V-382L-643 929H-237.504L668 23.4954Z" fill="url(#paint0_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_2" style={{ mixBlendMode: "multiply" }}>
+              <path d="M1195 -226.405V-592L13 590H378.596L1195 -226.405Z" fill="url(#paint1_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_3" style={{ mixBlendMode: "multiply" }}>
+              <path d="M1011 -629.405V-995L-171 187H194.596L1011 -629.405Z" fill="url(#paint2_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_4" style={{ mixBlendMode: "multiply" }}>
+              <path d="M313 -161.212V-357L-320 276H-124.211L313 -161.212Z" fill="url(#paint3_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_5">
+              <path d="M396.6 -357L-76 115.6H-42.2001L396.6 -323.2V-357Z" fill="url(#paint4_linear_132_3263)"></path>
+              <path d="M396.6 -357L-76 115.6H-42.2001L396.6 -323.2V-357Z" fill="url(#paint5_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_6" filter="url(#filter0_f_132_3263)">
+              <path d="M52 428.656V347L-212 611H-130.344L52 428.656Z" fill="url(#paint6_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_7" filter="url(#filter1_f_132_3263)">
+              <path d="M146 50L-189 385H-165.061L146 73.9394V50Z" fill="url(#paint7_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_8" filter="url(#filter2_f_132_3263)">
+              <path d="M345.1 -154L124 67.1H139.8L345.1 -138.2V-154Z" fill="url(#paint8_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_9" filter="url(#filter3_f_132_3263)">
+              <path d="M140 131H313L140 304V131Z" fill="url(#paint9_linear_132_3263)"></path>
+              <path d="M140 131H313L140 304V131Z" fill="url(#paint10_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_10" style={{ mixBlendMode: "multiply" }}>
+              <path d="M1315 316.788V121L682 754H877.789L1315 316.788Z" fill="url(#paint11_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_11" style={{ mixBlendMode: "multiply" }}>
+              <path d="M1220 -28.2093V-121L920 179H1012.79L1220 -28.2093Z" fill="url(#paint12_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_12" style={{ mixBlendMode: "multiply" }}>
+              <path d="M1968 388.791V296L1668 596H1760.79L1968 388.791Z" fill="url(#paint13_linear_132_3263)"></path>
+            </g>
+            {/* </g> */}
+          </motion.g>
         </g>
-        <g id="foreground" className="backgroungAnim2">
-          <path id="Vector_13" d="M1563 30.6791V-85L1189 289H1304.68L1563 30.6791Z" fill="url(#paint14_linear_132_3263)"></path>
-          <g id="Vector_14" filter="url(#filter4_f_132_3263)">
-            <path d="M1909 -173.321V-289L1535 85H1650.68L1909 -173.321Z" fill="url(#paint15_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_15" filter="url(#filter5_f_132_3263)">
-            <path d="M761.1 577L540 798.1H555.8L761.1 592.8V577Z" fill="url(#paint16_linear_132_3263)"></path>
-          </g>
-          <path id="Vector_16" d="M2042 259.679V144L1668 518H1783.68L2042 259.679Z" fill="url(#paint17_linear_132_3263)"></path>
-          <g id="Vector_17" filter="url(#filter6_f_132_3263)">
-            <path d="M1729.1 -57L1508 164.1H1523.8L1729.1 -41.2V-57Z" fill="url(#paint18_linear_132_3263)"></path>
-          </g>
-          <g id="Vector_18" filter="url(#filter7_f_132_3263)">
-            <path d="M1721 49H1774L1721 102V49Z" fill="url(#paint19_linear_132_3263)"></path>
-          </g>
+        <g
+          style={{
+            transform: `translateX(-${offsetX}px)`,
+            transition: "transform 0.1s linear", // Smooth movement
+          }}
+          className="absolute top-0 left-0 w-full h-full"
+        >
+          <motion.g id="foreground" initial={{ x: 150 }} animate={{ x: 0 }} transition={{ duration: 1, ease: "linear" }}>
+            <path id="Vector_13" d="M1563 30.6791V-85L1189 289H1304.68L1563 30.6791Z" fill="url(#paint14_linear_132_3263)"></path>
+            <g id="Vector_14" filter="url(#filter4_f_132_3263)">
+              <path d="M1909 -173.321V-289L1535 85H1650.68L1909 -173.321Z" fill="url(#paint15_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_15" filter="url(#filter5_f_132_3263)">
+              <path d="M761.1 577L540 798.1H555.8L761.1 592.8V577Z" fill="url(#paint16_linear_132_3263)"></path>
+            </g>
+            <path id="Vector_16" d="M2042 259.679V144L1668 518H1783.68L2042 259.679Z" fill="url(#paint17_linear_132_3263)"></path>
+            <g id="Vector_17" filter="url(#filter6_f_132_3263)">
+              <path d="M1729.1 -57L1508 164.1H1523.8L1729.1 -41.2V-57Z" fill="url(#paint18_linear_132_3263)"></path>
+            </g>
+            <g id="Vector_18" filter="url(#filter7_f_132_3263)">
+              <path d="M1721 49H1774L1721 102V49Z" fill="url(#paint19_linear_132_3263)"></path>
+            </g>
+          </motion.g>
         </g>
       </g>
       <defs>
