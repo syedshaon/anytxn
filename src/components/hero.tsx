@@ -10,7 +10,8 @@ import herobgsingle from "../../public/Assets/backgrounds/hero-bg-single.svg";
 import HeroBgDesk from "./BGs/heroBgDesk";
 import HeroBgMobile from "./BGs/heroBgMobile";
 
-import heroGirl from "../../public/Assets/backgrounds/hero-girl.avif";
+// import heroGirl from "../../public/Assets/backgrounds/hero-girl.avif";
+import heroGirl from "../../public/Assets/backgrounds/hero-girl.jpg";
 
 function Hero() {
   return (
