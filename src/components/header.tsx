@@ -52,7 +52,7 @@ function Header() {
   const [showSolutions, setShowSolutions] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
   return (
-    <header className=" bg-transparent text-white max-lg:bg-blue-main max-lg:py-8 top-0 lg:absolute w-full lg:pt-[17px] lg:pb-[25px] text-res-body-p1 lg:text-body-p1 z-[9999]  ">
+    <header className="  lg:bg-transparent text-white max-lg:bg-[#1f80f0] max-lg:py-8 top-0 lg:absolute w-full lg:pt-[17px] lg:pb-[25px] text-res-body-p1 lg:text-body-p1 z-[9999]  ">
       <div id="main-navigation" className="relative z-[9999]">
         <div className="container flex items-center flex-wrap justify-between">
           <h1>

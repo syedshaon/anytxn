@@ -4,9 +4,10 @@ import Hero from "@/components/hero";
 
 function page() {
   return (
-    <div className="bg-blue-400 h-screen w-full">
+    <div className=" min-h-screen w-full">
       <Header />
       <Hero />
+      <div className="h-screen"></div>
     </div>
   );
 }
