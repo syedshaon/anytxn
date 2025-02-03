@@ -39,10 +39,10 @@ function PhilosophyMobile() {
       pagination={{
         clickable: true,
       }}
-      className="mySwiper"
+      className="mySwiper2"
     >
       {innovations.map((innovation, index) => (
-        <SwiperSlide key={index} className="swiper-slide translate-y-[20%] opacity-0 z-20 h-full md:space-y-sm space-y-[8px] bg-[#F8FCFF] rounded-[20px] md:p-md p-sm  ">
+        <SwiperSlide key={index} className="swiper-slide translate-y-[20%]   z-20 h-full md:space-y-sm space-y-[8px] bg-[#F8FCFF] rounded-[20px] md:p-md p-sm  ">
           <figure className="w-fit rounded-full  ">
             <Image src={innovation.img} alt={innovation.title} className="lg:h-[50px] lg:w-[50px] h-[32px] w-[32px]" />
           </figure>
