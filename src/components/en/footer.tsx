@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import Phone from "../../public/Assets/social/phone.webp";
-import Mail from "../../public/Assets/social/email.webp";
-import LinkedIn from "../../public/Assets/social/linkedin.webp";
-import Logo from "../../public/logo.svg";
+import Phone from "../../../public/Assets/social/phone.webp";
+import Mail from "../../../public/Assets/social/email.webp";
+import LinkedIn from "../../../public/Assets/social/linkedin.webp";
+import Logo from "../../../public/logo.svg";
 
 function Footer() {
   return (

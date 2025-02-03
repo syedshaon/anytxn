@@ -1,10 +1,13 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 
 function HeroBgMobile() {
   return (
     <svg className="lg:hidden absolute top-0 left-0 w-[110%] h-[65%] object-cover" preserveAspectRatio="xMidYMid slice" viewBox="0 0 797 645" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="hero-background-mobile">
-        <g id="dark">
+        <motion.g id="dark" initial={{ y: -150 }} animate={{ y: 0 }} transition={{ duration: 1, ease: "linear" }}>
           <g id="Group" style={{ mixBlendMode: "multiply" }}>
             <path id="Vector" d="M797 437.791V345L497 645H589.791L797 437.791Z" fill="url(#paint0_linear_6_180)" />
           </g>
@@ -14,8 +17,8 @@ function HeroBgMobile() {
           <g id="Group_3" style={{ mixBlendMode: "multiply" }}>
             <path id="Vector_3" d="M684 365.595V0L39 644.991H404.596L684 365.595Z" fill="url(#paint2_linear_6_180)" />
           </g>
-        </g>
-        <g id="light" clipPath="url(#clip0_6_180)">
+        </motion.g>
+        <motion.g id="light" clipPath="url(#clip0_6_180)" initial={{ x: 150 }} animate={{ x: 0 }} transition={{ duration: 1, ease: "linear" }}>
           <g id="Group_4" filter="url(#filter0_f_6_180)">
             <path id="Vector_4" d="M684 272.067V200L451 433H523.068L684 272.067Z" fill="url(#paint3_linear_6_180)" />
           </g>
@@ -26,7 +29,7 @@ function HeroBgMobile() {
             <path id="Vector_6" d="M111 313H284L111 486V313Z" fill="url(#paint5_linear_6_180)" />
             <path id="Vector_7" d="M111 313H284L111 486V313Z" fill="url(#paint6_linear_6_180)" />
           </g>
-        </g>
+        </motion.g>
       </g>
       <defs>
         <filter id="filter0_f_6_180" x={420} y={169} width={295} height={295} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">

@@ -1,7 +1,9 @@
+"use client";
+
 import React from "react";
-import FooterSvg1 from "./BGs/footerSvg1";
-import FooterSvg2 from "./BGs/footerSvg2";
-import FooterSvg3 from "./BGs/footerSvg3";
+import FooterSvg1 from "../BGs/footerSvg1";
+import FooterSvg2 from "../BGs/footerSvg2";
+import FooterSvg3 from "../BGs/footerSvg3";
 
 function Contact() {
   return (
@@ -11,12 +13,15 @@ function Contact() {
         <p className="text-base lg:text-lg 2xl:text-xl lg:whitespace-pre-line mb-[30px]">Talk to us to find out how we can transform your organisation for the future</p>
         <div className="flex lg:flex-row flex-col lg:space-x-[16px] space-y-4 lg:space-y-0 w-full">
           <a className="md:py-[15.5px] py-[14px] px-[42px] rounded-xs shadow-button-primary text-link text-white flex items-center justify-center space-x-[8px] bg-orange-main false" href="/en/contact-us">
-            <span className="contactUsAnim">Contact Us</span>
+            <span>Contact Us</span>
+
             <FooterSvg1 />
           </a>
         </div>
       </div>
+
       <FooterSvg2 />
+
       <FooterSvg3 />
     </section>
   );

@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "@/components/header";
-import Hero from "@/components/hero";
-import Finance from "@/components/finance";
-import Philosophy from "@/components/philosophy";
-import Technology from "@/components/technology";
-import Stats from "@/components/stat";
-import Contact from "@/components/contact";
-import Footer from "@/components/footer";
+import Header from "@/components/en/header";
+import Hero from "@/components/en/hero";
+import Finance from "@/components/en/finance";
+import Philosophy from "@/components/en/philosophy";
+import Technology from "@/components/en/technology";
+import Stats from "@/components/en/stat";
+import Contact from "@/components/en/contact";
+import Footer from "@/components/en/footer";
 
 function page() {
   return (

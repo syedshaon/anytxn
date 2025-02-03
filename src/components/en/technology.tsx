@@ -5,11 +5,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import Image from "next/image";
-import slide1 from "../../public/Assets/Slider/slide1.jpg";
-import slide2 from "../../public/Assets/Slider/slide2.jpg";
-import slide3 from "../../public/Assets/Slider/slide3.png";
-import slide4 from "../../public/Assets/Slider/slide4.jpg";
+import slide1 from "../../../public/Assets/Slider/slide1.jpg";
+import slide2 from "../../../public/Assets/Slider/slide2.jpg";
+import slide3 from "../../../public/Assets/Slider/slide3.png";
+import slide4 from "../../../public/Assets/Slider/slide4.jpg";
 
+import { Swiper as SwiperType } from "swiper";
 const Slides = [
   {
     title: "Customer focused",
@@ -42,7 +43,7 @@ const Slides = [
 ];
 
 function Technology() {
-  const swiperRef = useRef<any>(null); // Store Swiper instance
+  const swiperRef = useRef<SwiperType | null>(null); // Store Swiper instance
   const [activeIndex, setActiveIndex] = useState(0); // Track active slide
 
   return (
@@ -84,9 +85,9 @@ function Technology() {
                 delay: 2500,
                 disableOnInteraction: false,
               }}
-              pagination={false}
+              pagination={true}
               modules={[Autoplay, Pagination]}
-              className="mySwiper"
+              className="technologySwiper"
             >
               {Slides.map((slide, index) => (
                 <SwiperSlide key={index} style={{ width: 914, marginRight: 50 }}>

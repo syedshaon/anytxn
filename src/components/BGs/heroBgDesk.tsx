@@ -2,7 +2,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { MouseParallaxChild, MouseParallaxContainer } from "react-parallax-mouse";
+
 function HeroBgDesk() {
   const [offsetX, setOffsetX] = useState(0);
 
@@ -31,7 +31,6 @@ function HeroBgDesk() {
           className="absolute top-0 left-0 w-full h-full"
         >
           <motion.g id="background" initial={{ y: -150 }} animate={{ y: 0 }} transition={{ duration: 1, ease: "linear" }}>
-            {/* <g id="background" className="backgroungAnim1"> */}
             <g id="Vector" style={{ mixBlendMode: "multiply" }}>
               <path d="M668 23.4954V-382L-643 929H-237.504L668 23.4954Z" fill="url(#paint0_linear_132_3263)"></path>
             </g>

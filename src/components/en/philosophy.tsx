@@ -2,11 +2,8 @@ import React from "react";
 import Image from "next/image";
 import PhilosophyDesktop from "./philosophyDesktop";
 import PhilosophyMobile from "./philosophyMobile";
-import philosophyBg from "../../public/Assets/backgrounds/philosophy-bg.png";
-import philosophysmbg from "../../public/Assets/backgrounds/philosophy-sm-bg.png";
-import share from "../../public/Assets/backgrounds/share.svg";
-import light from "../../public/Assets/backgrounds/light.png";
-import processor from "../../public/Assets/backgrounds/processor.svg";
+import philosophyBg from "../../../public/Assets/backgrounds/philosophy-bg.png";
+import philosophysmbg from "../../../public/Assets/backgrounds/philosophy-sm-bg.png";
 
 function Philosophy() {
   return (

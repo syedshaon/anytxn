@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Logo from "../../public/logo.svg";
-import LogoBlue from "../../public/logo-blue.svg";
-import ChevronRight from "../../public/Assets/icons/ChevronRight.svg";
-import ChevronRightIcon from "./icons/chevronRightIcon";
+import Logo from "../../../public/logo.svg";
+import LogoBlue from "../../../public/logo-blue.svg";
+import ChevronRight from "../../../public/Assets/icons/ChevronRight.svg";
+import ChevronRightIcon from "../icons/chevronRightIcon";
 // import Globe from "../../public/globe.svg";
 import Globe from "@/components/icons/globe";
 // import Hamburger from "../../public/Assets/icons/hamburger.svg";
@@ -29,21 +29,25 @@ const Solutions = [
 const Languages = [
   {
     title: "EN (English)",
+    titleShort: "English",
     link: "/en",
     short: "EN",
   },
   {
     title: "TH (Thai)",
+    titleShort: "Thai",
     link: "/th",
     short: "TH",
   },
   {
     title: "ID (Bahasa Indonesia)",
+    titleShort: "Indonesia",
     link: "/id",
     short: "ID",
   },
   {
     title: "TW (Traditional Chinese)",
+    titleShort: "Chinese",
     link: "/tw",
     short: "TW",
   },
@@ -51,6 +55,7 @@ const Languages = [
 
 function Header() {
   const [showLangs, setShowLangs] = useState(false);
+  const [activeLang, setActiveLang] = useState(Languages[0]);
   const [showMobileLangs, setShowMobileLangs] = useState(false);
   const [showSolutions, setShowSolutions] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
@@ -128,7 +133,7 @@ function Header() {
                       <button onClick={() => setShowLangs(!showLangs)} className={`rounded-[132px] flex items-center justify-center space-x-[8px] border px-[13px] py-[6px] lg:text-body-p1 text-res-body-p0  ${scrollingUp ? "text-[#1f80f0] border-[#1f80f0]" : "text-white border-white"}`}>
                         {/* <Image src={Globe} alt="Globe" width={12} height={13} className="  fill-white" /> */}
                         <Globe />
-                        <span className="uppercase font-normal">en</span>
+                        <span className="uppercase font-normal">{activeLang.short}</span>
 
                         <div className="relative">
                           <ChevronRightIcon className={`   ${scrollingUp ? "fill-[#1f80f0]" : "fill-white"}   transform transition-transform duration-200   ${showLangs ? "-rotate-90" : "rotate-90"}`} />
@@ -137,8 +142,8 @@ function Header() {
                     </div>
                     <span className={`lg:absolute lg:top-full lg:bg-white lg:w-[240px] relative shadow-menu lg:text-blue-text   rounded-xs hidden  ${showLangs ? "lg:block" : "lg:hidden"}`}>
                       <ul className="flex flex-col relative lg:-mt-[1px] max-lg:mt-6">
-                        {Languages.map((lang) => (
-                          <li key={lang.title} className="lg:border-t border-blue-light whitespace-nowrap first:border-none">
+                        {Languages.map((lang, index) => (
+                          <li onClick={() => setActiveLang(Languages[index])} key={lang.title} className="lg:border-t border-blue-light whitespace-nowrap first:border-none">
                             <Link href={lang.link} passHref className="lg:hover:text-[#1f80f0] hover:transition-colors duration-200 py-3 lg:pl-[15px] pl-4 max-lg:pr-5 inline-block">
                               <span className="flex res-body-p0 lg:text-body-p1">
                                 <ChevronRightIcon className="w-2 -rotate-90 fill-white mr-2 mt-2 lg:hidden" />
@@ -249,18 +254,18 @@ function Header() {
                     <button className="rounded-[132px] flex items-center justify-center space-x-[8px] border px-[28px] py-[8px] lg:text-body-p1 text-res-body-p0 text-white border-white">
                       <Globe />
 
-                      <span className="uppercase">en</span>
+                      <span className="uppercase">{activeLang.short}</span>
                       <Image src={ChevronRight} alt="Chevron Right" width={9} height={6} className="ml-2 mt-1 fill-white  rotate-90 transition-transform duration-200" />
                     </button>
                   </div>{" "}
                   <div className="lg:hidden block w-full group/highlight">
-                    <div className="w-full   py-[8px] text-res-body-p1 text-white  transition-all duration-75">
+                    <div className="w-full   border px-[14px] py-[8px] text-res-body-p1 text-white border-blue-main transition-all duration-75 rounded-[20px]">
                       <button onClick={() => setShowMobileLangs(!showMobileLangs)} className="flex justify-center items-center space-x-[8px] w-full">
-                        <div className="flex-1 flex space-x-2 items-center">
+                        <div className={` space-x-2 items-center ${showMobileLangs ? "flex-1 flex" : "flex"}`}>
                           <Globe />
-                          <span className="uppercase">English</span>
+                          <span className="uppercase">{activeLang.titleShort}</span>
                         </div>
-                        <ChevronRightIcon className={`fill-white transform transition-transform duration-700   ease-in-out ${showMobileLangs ? "-rotate-90" : "rotate-0"}`} />
+                        <ChevronRightIcon className={`fill-white transform transition-transform duration-700   ease-in-out ${showMobileLangs ? "-rotate-90" : "rotate-90"}`} />
                       </button>
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: showMobileLangs ? "auto" : 0, opacity: showMobileLangs ? 1 : 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} className="overflow-hidden">
                         <span className="lg:absolute lg:top-full lg:bg-white lg:w-[240px] relative shadow-menu lg:text-blue-text rounded-xs lg:group-hover:block">
