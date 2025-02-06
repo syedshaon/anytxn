@@ -81,6 +81,7 @@ function Technology() {
           >
             <Swiper
               onSwiper={(swiper) => (swiperRef.current = swiper)} // Store Swiper instance
+              onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false,
