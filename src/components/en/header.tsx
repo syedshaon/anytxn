@@ -65,10 +65,7 @@ function Header() {
   const urlPath = usePathname();
   const [showLangs, setShowLangs] = useState(false);
   // const [activeLang, setActiveLang] = useState(Languages[0]);
-  const [activeLang, setActiveLang] = useState(() => {
-    const storedLang = localStorage.getItem("activeLang");
-    return storedLang ? JSON.parse(storedLang) : Languages[0];
-  });
+  const [activeLang, setActiveLang] = useState(Languages[0]);
   const [showMobileLangs, setShowMobileLangs] = useState(false);
   const [showSolutions, setShowSolutions] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
@@ -79,7 +76,7 @@ function Header() {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const changeActiveLang = (lang: Language): void => {
-    localStorage.setItem("activeLang", JSON.stringify(lang));
+    // localStorage.setItem("activeLang", JSON.stringify(lang));
     setActiveLang(lang);
     setShowLangs(false);
   };
@@ -89,6 +86,7 @@ function Header() {
     const lang = Languages.find((lang) => lang.link === urlPath);
     if (lang) {
       changeActiveLang(lang);
+      localStorage.setItem("activeLang", JSON.stringify(lang));
     }
   }, [urlPath]);
 

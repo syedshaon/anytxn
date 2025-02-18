@@ -7,7 +7,7 @@ import HeroBgDesk from "../BGs/heroBgDesk";
 import HeroBgMobile from "../BGs/heroBgMobile";
 import heroGirl from "../../../public/Assets/backgrounds/hero-girl.jpg";
 
-const languages = ["en", "id", "th", "tw"];
+// const languages = ["en", "id", "th", "tw"];
 const langWiseContent = {
   en: {
     title: "Embrace the future of finance",
