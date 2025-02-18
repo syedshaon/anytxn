@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "../../../public/logo.svg";
 import LogoBlue from "../../../public/logo-blue.svg";
@@ -53,9 +54,21 @@ const Languages = [
   },
 ];
 
+interface Language {
+  title: string;
+  titleShort: string;
+  link: string;
+  short: string;
+}
+
 function Header() {
+  const urlPath = usePathname();
   const [showLangs, setShowLangs] = useState(false);
-  const [activeLang, setActiveLang] = useState(Languages[0]);
+  // const [activeLang, setActiveLang] = useState(Languages[0]);
+  const [activeLang, setActiveLang] = useState(() => {
+    const storedLang = localStorage.getItem("activeLang");
+    return storedLang ? JSON.parse(storedLang) : Languages[0];
+  });
   const [showMobileLangs, setShowMobileLangs] = useState(false);
   const [showSolutions, setShowSolutions] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
@@ -64,6 +77,20 @@ function Header() {
 
   const [scrollingUp, setScrollingUp] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const changeActiveLang = (lang: Language): void => {
+    localStorage.setItem("activeLang", JSON.stringify(lang));
+    setActiveLang(lang);
+    setShowLangs(false);
+  };
+
+  //  useEffect change active lang according to router
+  useEffect(() => {
+    const lang = Languages.find((lang) => lang.link === urlPath);
+    if (lang) {
+      changeActiveLang(lang);
+    }
+  }, [urlPath]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -143,7 +170,7 @@ function Header() {
                     <span className={`lg:absolute lg:top-full lg:bg-white lg:w-[240px] relative shadow-menu lg:text-blue-text   rounded-xs hidden  ${showLangs ? "lg:block" : "lg:hidden"}`}>
                       <ul className="flex flex-col relative lg:-mt-[1px] max-lg:mt-6">
                         {Languages.map((lang, index) => (
-                          <li onClick={() => setActiveLang(Languages[index])} key={lang.title} className="lg:border-t border-blue-light whitespace-nowrap first:border-none">
+                          <li onClick={() => changeActiveLang(Languages[index])} key={lang.title} className="lg:border-t border-blue-light whitespace-nowrap first:border-none">
                             <Link href={lang.link} passHref className="lg:hover:text-[#1f80f0] hover:transition-colors duration-200 py-3 lg:pl-[15px] pl-4 max-lg:pr-5 inline-block">
                               <span className="flex res-body-p0 lg:text-body-p1">
                                 <ChevronRightIcon className="w-2 -rotate-90 fill-white mr-2 mt-2 lg:hidden" />
